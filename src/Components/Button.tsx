@@ -36,7 +36,7 @@ export const Button: FC<ButtonProps> = ({
         {
           backgroundColor: bgColor,
           borderWidth: borderWidth,
-          borderColor: borderColor,
+          borderColor:  borderColor,
         },
       ]}
     >

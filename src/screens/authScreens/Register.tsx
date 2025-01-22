@@ -1,25 +1,19 @@
 import {
   View,
-  Text,
   ScrollView,
-  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Input from '../../Components/Input';
-import {Colors} from '../../assets/colors';
+import { Colors } from '../../assets/colors';
 import {
-  responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from '../../assets/responsive_dimensions';
-import {BoldText, NormalText} from '../../Components/Titles';
-import {Button} from '../../Components/Button';
-import {Apple, Google, mail, security, tick, user} from '../../assets/icons';
-import SvgIcons from '../../Components/SvgIcons';
-
-const Register = () => {
-  const [checked, setIsChecked] = useState(false);
+import { BoldText, NormalText } from '../../Components/Titles';
+import { Button } from '../../Components/Button';
+import { mail, security, user } from '../../assets/icons';
+const Register = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   return (
@@ -43,7 +37,7 @@ const Register = () => {
           title="Sign up and discover around the world!"
         />
       </View>
-      <View style={{gap: responsiveHeight(2)}}>
+      <View style={{ gap: responsiveHeight(2) }}>
         <Input
           xml={user}
           placeholderTxtColor={Colors.themeText}
@@ -92,6 +86,7 @@ const Register = () => {
         />
 
         <Button
+          handlePress={() => navigation.navigate('Otp')}
           textColor={Colors.white}
           bgColor={Colors.buttonBg}
           title="Sign Up"
@@ -103,13 +98,3 @@ const Register = () => {
 
 export default Register;
 
-const styles = StyleSheet.create({
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: responsiveWidth(7),
-    height: responsiveHeight(3.5),
-    padding: 10, // Add padding for touchable area
-    borderRadius: responsiveHeight(1), // Add border radius if required
-  },
-});

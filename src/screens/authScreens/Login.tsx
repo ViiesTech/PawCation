@@ -5,22 +5,22 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Input from '../../Components/Input';
-import {Colors} from '../../assets/colors';
+import { Colors } from '../../assets/colors';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from '../../assets/responsive_dimensions';
-import {BoldText, NormalText} from '../../Components/Titles';
-import {Button} from '../../Components/Button';
-import {Apple, Google, mail, security, tick} from '../../assets/icons';
+import { BoldText, NormalText } from '../../Components/Titles';
+import { Button } from '../../Components/Button';
+import { Apple, Google, mail, security, tick } from '../../assets/icons';
 import SvgIcons from '../../Components/SvgIcons';
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const [checked, setIsChecked] = useState(false);
-  const [showPassword,setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -42,7 +42,7 @@ const Login = ({navigation}) => {
           title="Stay signed in with your account"
         />
       </View>
-      <View style={{gap: responsiveHeight(2)}}>
+      <View style={{ gap: responsiveHeight(2) }}>
         <Input
           xml={mail}
           placeholderTxtColor={Colors.themeText}
@@ -85,12 +85,12 @@ const Login = ({navigation}) => {
               style={[
                 styles.button,
                 checked
-                  ? {backgroundColor: Colors.buttonBg}
+                  ? { backgroundColor: Colors.buttonBg }
                   : {
-                      backgroundColor: Colors.white,
-                      borderWidth: 1.5,
-                      borderColor: Colors.buttonBg,
-                    },
+                    backgroundColor: Colors.white,
+                    borderWidth: 1.5,
+                    borderColor: Colors.buttonBg,
+                  },
               ]}>
               {checked && <SvgIcons xml={tick} height="15" width="15" />}{' '}
               {/* Show SVG when checked */}
@@ -102,7 +102,7 @@ const Login = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <Button
-        handlePress={()=>navigation.navigate('Signup')}
+          handlePress={() => navigation.navigate('Signup')}
           textColor={Colors.white}
           bgColor={Colors.buttonBg}
           title="Sign In"
@@ -141,7 +141,7 @@ const Login = ({navigation}) => {
           bgColor={Colors.black}
           borderWidth={1}
           textColor={Colors.white}
-          borderColor={Colors.buttonBg}
+          // borderColor={Colors.buttonBg}
           icon={true}
           title="Sign in with Apple"
         />
