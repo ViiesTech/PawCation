@@ -2,55 +2,74 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Image,
+  Text,
+  StyleSheet,
 } from 'react-native';
-import React, { useState } from 'react';
-import { Colors } from '../../assets/colors';
+import React, {useState} from 'react';
+import {Colors} from '../../assets/colors';
 import {
   responsiveHeight,
+  responsiveWidth,
 } from '../../assets/responsive_dimensions';
-import { BoldText, NormalText } from '../../Components/Titles';
-import { Button } from '../../Components/Button';
+import {BoldText, NormalText} from '../../Components/Titles';
+import {Button} from '../../Components/Button';
 import SvgIcons from '../../Components/SvgIcons';
-import { back, dayCare, otp, security, userType } from '../../assets/icons';
+import {back, dayCare, otp, security, tick, userType} from '../../assets/icons';
 
 import Input from '../../Components/Input';
-const SelectType = ({ navigation }) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+import {images} from '../../assets/images';
+import {CheckBox} from '../../Components/CheckBox';
+const SelectType = ({navigation}) => {
+  const [currentCategory, setCurrentCategory] = useState('user');
+
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{
-        flexGrow: 1,
-        backgroundColor: Colors.white,
-        padding: 20,
-        paddingTop: 30
-      }}>
+      contentContainerStyle={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <SvgIcons xml={back} height={'20'} width={'20'} />
       </TouchableOpacity>
-      <View
-        style={{
-          gap: responsiveHeight(1),
-          marginBottom: responsiveHeight(1.5),
-          flex: 0.8,
-          justifyContent: 'center'
-        }}>
+      <View style={styles.mainContainer}>
         <BoldText mrgnTop={responsiveHeight(2)} title="Select Experience" />
 
-        <View style={{ marginTop: responsiveHeight(4), gap: responsiveHeight(2), flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-          <TouchableOpacity>
-            <SvgIcons xml={userType} height={'150'} width={'150'} />
+        <View style={styles.selectExpContainer}>
+          <TouchableOpacity onPress={() => setCurrentCategory('user')}>
+            <TouchableOpacity
+              onPress={() => setCurrentCategory('user')}
+              style={styles.experienceContainer}>
+              <Image
+                resizeMode="stretch"
+                source={images.user}
+                style={{
+                  height: responsiveHeight(12),
+                  width: responsiveWidth(17.3),
+                }}
+              />
+              {currentCategory === 'user' && <CheckBox />}
+            </TouchableOpacity>
+            <BoldText title="User" mrgnTop={responsiveHeight(4)} />
           </TouchableOpacity>
-          <TouchableOpacity>
 
-            <SvgIcons xml={dayCare} height={'150'} width={'150'} />
+          <TouchableOpacity onPress={() => setCurrentCategory('dayCare')}>
+            <TouchableOpacity
+              onPress={() => setCurrentCategory('dayCare')}
+              style={styles.experienceContainer}>
+              <Image
+                resizeMode="stretch"
+                source={images.dayCare}
+                style={{
+                  height: responsiveHeight(12),
+                  width: responsiveWidth(17.3),
+                }}
+              />
+              {currentCategory === 'dayCare' && <CheckBox />}
+            </TouchableOpacity>
+            <BoldText title="Hotel/Daycare" mrgnTop={responsiveHeight(4)} />
           </TouchableOpacity>
-
         </View>
-
       </View>
-      <View style={{ position: 'absolute', bottom: responsiveHeight(3), width: '100%', alignSelf: 'center' }}>
+      <View style={styles.buttonContainer}>
         <Button
           handlePress={() => navigation.navigate('SelectType')}
           textColor={Colors.white}
@@ -63,4 +82,37 @@ const SelectType = ({ navigation }) => {
 };
 
 export default SelectType;
-
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    backgroundColor: Colors.white,
+    padding: 20,
+    paddingTop: 30,
+  },
+  mainContainer: {
+    gap: responsiveHeight(1),
+    marginBottom: responsiveHeight(1.5),
+    flex: 0.3,
+    justifyContent: 'center',
+  },
+  experienceContainer: {
+    borderColor: Colors.borderColor,
+    borderWidth: 2,
+    borderRadius: responsiveHeight(2),
+    padding: responsiveHeight(4),
+    paddingHorizontal:responsiveHeight(4.5)
+  },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: responsiveHeight(3),
+    width: '100%',
+    alignSelf: 'center',
+  },
+  selectExpContainer: {
+    marginTop: responsiveHeight(4),
+    gap: responsiveHeight(2),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
