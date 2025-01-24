@@ -30,7 +30,7 @@ const SelectType = ({ navigation }) => {
         <SvgIcons xml={back} height={'20'} width={'20'} />
       </TouchableOpacity>
       <View style={styles.mainContainer}>
-        <BoldText mrgnTop={responsiveHeight(2)} title="Select Experience" />
+        <BoldText txtAlign='center' mrgnTop={responsiveHeight(2)} title="Select Experience" />
 
         <View style={styles.selectExpContainer}>
           <TouchableOpacity onPress={() => setCurrentCategory('user')}>

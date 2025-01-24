@@ -35,6 +35,7 @@ const Login = ({ navigation }) => {
           gap: responsiveHeight(1),
           marginBottom: responsiveHeight(3.5),
           flex: 0.2,
+          alignItems:'center'
         }}>
         <BoldText title="Login Account" />
         <NormalText

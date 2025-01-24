@@ -85,7 +85,7 @@ const Otp = ({ navigation }) => {
           justifyContent: 'center'
         }}>
         <SvgIcons align='center' xml={otp} height={'150'} width={'150'} />
-        <BoldText mrgnTop={responsiveHeight(2)} title="Enter OTP" />
+        <BoldText txtAlign='center' mrgnTop={responsiveHeight(2)} title="Enter OTP" />
         <NormalText
           color='#3B4C68'
         fontWeight='400'
