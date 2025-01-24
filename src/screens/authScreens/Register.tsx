@@ -86,7 +86,7 @@ const Register = ({ navigation }) => {
         />
 
         <Button
-          handlePress={() => navigation.navigate('Otp')}
+          handlePress={() => navigation.navigate('SelectType')}
           textColor={Colors.white}
           bgColor={Colors.buttonBg}
           title="Sign Up"

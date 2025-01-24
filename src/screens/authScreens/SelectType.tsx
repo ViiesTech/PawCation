@@ -3,24 +3,23 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
-  Text,
   StyleSheet,
+  Alert,
 } from 'react-native';
-import React, {useState} from 'react';
-import {Colors} from '../../assets/colors';
+import React, { useState } from 'react';
+import { Colors } from '../../assets/colors';
 import {
   responsiveHeight,
   responsiveWidth,
 } from '../../assets/responsive_dimensions';
-import {BoldText, NormalText} from '../../Components/Titles';
-import {Button} from '../../Components/Button';
+import { BoldText } from '../../Components/Titles';
+import { Button } from '../../Components/Button';
 import SvgIcons from '../../Components/SvgIcons';
-import {back, dayCare, otp, security, tick, userType} from '../../assets/icons';
+import { back, } from '../../assets/icons';
 
-import Input from '../../Components/Input';
-import {images} from '../../assets/images';
-import {CheckBox} from '../../Components/CheckBox';
-const SelectType = ({navigation}) => {
+import { images } from '../../assets/images';
+import { CheckBox } from '../../Components/CheckBox';
+const SelectType = ({ navigation }) => {
   const [currentCategory, setCurrentCategory] = useState('user');
 
   return (
@@ -43,7 +42,8 @@ const SelectType = ({navigation}) => {
                 source={images.user}
                 style={{
                   height: responsiveHeight(12),
-                  width: responsiveWidth(17.3),
+                  width: responsiveWidth(17),
+                  left: 2
                 }}
               />
               {currentCategory === 'user' && <CheckBox />}
@@ -71,7 +71,10 @@ const SelectType = ({navigation}) => {
       </View>
       <View style={styles.buttonContainer}>
         <Button
-          handlePress={() => navigation.navigate('SelectType')}
+          handlePress={() => {
+            currentCategory === 'user' ?
+              navigation.navigate('userStack') : Alert.alert('This Flow Is Under Development')
+          }}
           textColor={Colors.white}
           bgColor={Colors.buttonBg}
           title="Continue"
@@ -100,7 +103,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: responsiveHeight(2),
     padding: responsiveHeight(4),
-    paddingHorizontal:responsiveHeight(4.5)
+    paddingHorizontal: responsiveHeight(5.5)
   },
   buttonContainer: {
     position: 'absolute',

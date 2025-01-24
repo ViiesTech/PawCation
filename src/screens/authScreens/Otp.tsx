@@ -116,7 +116,7 @@ to verify your identity"
         <View style={{marginTop:responsiveHeight(2.5)}}>
           <Button
            
-            handlePress={() => navigation.navigate('ForgotPass')}
+            handlePress={() => navigation.navigate('ResetPass')}
             textColor={Colors.white}
             bgColor={Colors.buttonBg}
             title="Continue"

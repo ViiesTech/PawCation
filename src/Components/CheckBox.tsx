@@ -10,7 +10,7 @@ import {tick} from '../assets/icons';
 
 export const CheckBox = () => {
   return (
-    <View style={styles.containerStyle}>
+    <View style={styles.containerStyle}> 
       <SvgIcons xml={tick} height={'30'} width={'30'} />
     </View>
   );
@@ -19,8 +19,8 @@ export const CheckBox = () => {
 const styles = StyleSheet.create({
   containerStyle: {
     backgroundColor: Colors.buttonBg,
-    position: 'absolute',
     bottom: responsiveHeight(-1.5),
+    position:'absolute',
     alignSelf: 'center',
     height: responsiveHeight(6.6),
     width: responsiveWidth(13),

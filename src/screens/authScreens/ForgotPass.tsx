@@ -68,7 +68,7 @@ const ForgotPass = ({ navigation }) => {
           placeHolder="Exampleemail@com"
         />
           <Button
-            handlePress={() => navigation.navigate('ResetPass')}
+            handlePress={() => navigation.navigate('Otp')}
             textColor={Colors.white}
             bgColor={Colors.buttonBg}
             title="Continue"

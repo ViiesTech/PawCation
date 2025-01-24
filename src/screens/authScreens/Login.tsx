@@ -97,7 +97,7 @@ const Login = ({ navigation }) => {
             </TouchableOpacity>
             <NormalText color={Colors.black} title="Remember me" />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('ForgotPass')}>
             <NormalText color={Colors.buttonBg} title="Forgot Password?" />
           </TouchableOpacity>
         </View>

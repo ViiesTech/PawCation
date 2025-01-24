@@ -1,12 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import BottomStack from './BottomStack';
 
-const UserStack = () => {
+// Define types for the navigation parameters
+type UserStackParams = {
+  BottomStack: undefined; // No params are passed to BottomStack
+  // SomeOtherScreen: { someParam: string }; // Add params for other screens
+
+};
+
+const Stack = createNativeStackNavigator<UserStackParams>(); // Use the typed navigator
+
+export function UserStack() {
   return (
-    <View>
-      <Text>UserStack</Text>
-    </View>
-  )
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="BottomStack" component={BottomStack} />
+    </Stack.Navigator>
+  );
 }
-
-export default UserStack
