@@ -85,11 +85,12 @@ const Otp = ({ navigation }) => {
           justifyContent: 'center'
         }}>
         <SvgIcons align='center' xml={otp} height={'150'} width={'150'} />
-        <BoldText txtAlign='center' mrgnTop={responsiveHeight(2)} title="Enter OTP" />
+        <BoldText alignSelf='center' mrgnTop={responsiveHeight(2)} title="Enter OTP" />
         <NormalText
+
           color='#3B4C68'
         fontWeight='400'
-
+         
           txtAlign='center'
           alignSelf="center"
           title="We have sent you an email containing 6 digits 
@@ -108,6 +109,7 @@ to verify your identity"
             renderCell={renderCell}
           />
         <NormalText
+        alignSelf='center'
           color='#3B4C68'
           txtAlign='center'
           title={`Resend code (00:16)`}

@@ -17,6 +17,7 @@ export const BoldText: React.FC<textProps> = ({
   title,
   txtAlign = 'left',
   mrgnTop,
+  fontWeight,
   fontSize = responsiveFontSize(2.7),
   alignSelf = 'flex-start',
   color = Colors.themeText,
@@ -25,7 +26,7 @@ export const BoldText: React.FC<textProps> = ({
     <Text
       style={{
         fontSize,
-        fontWeight: '900',
+        fontWeight: fontWeight ? fontWeight : '900',
         marginTop: mrgnTop,
         color,
         textAlign: txtAlign,

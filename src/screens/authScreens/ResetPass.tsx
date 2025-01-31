@@ -37,7 +37,7 @@ const ResetPass = ({ navigation }) => {
           justifyContent: 'center'
         }}>
         <SvgIcons align='center' xml={otp} height={'150'} width={'150'} />
-        <BoldText txtAlign='center' mrgnTop={responsiveHeight(2)} title="Reset Password" />
+        <BoldText alignSelf='center' txtAlign='center' mrgnTop={responsiveHeight(2)} title="Reset Password" />
         <NormalText
           color='#3B4C68'
           fontWeight='400'

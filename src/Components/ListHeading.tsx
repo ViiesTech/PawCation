@@ -25,8 +25,8 @@ export const ListHeading: FC<ListHeadingProps> = ({
             <Button
               borderRadius={responsiveHeight(0.9)}
               alignSelf="center"
-              height={responsiveHeight(4.5)}
-              width={responsiveHeight(11.3)}
+              height={responsiveHeight(4)}
+              width={responsiveHeight(10.7)}
               textFont={responsiveFontSize(2.1)}
               textColor={Colors.white}
               bgColor="#52B4E9"

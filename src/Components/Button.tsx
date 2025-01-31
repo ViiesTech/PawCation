@@ -18,7 +18,7 @@ interface ButtonProps {
   width: number;
   height: number;
   alignSelf: string;
-  textFont: string;
+  textFont: number;
   icon?: boolean; // Optional prop with default value
   handlePress: () => void;
 }

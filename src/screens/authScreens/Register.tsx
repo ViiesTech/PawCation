@@ -31,7 +31,7 @@ const Register = ({ navigation }) => {
           marginBottom: responsiveHeight(3.5),
           flex: 0.1,
         }}>
-        <BoldText title="Create Account" />
+        <BoldText alignSelf='center' title="Create Account" />
         <NormalText
           alignSelf="center"
           title="Sign up and discover around the world!"

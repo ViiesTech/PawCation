@@ -47,7 +47,7 @@ const ForgotPass = ({ navigation }) => {
           justifyContent: 'center'
         }}>
         <SvgIcons align='center' xml={otp} height={'150'} width={'150'} />
-        <BoldText txtAlign='center' mrgnTop={responsiveHeight(2)} title="Forgot password" />
+        <BoldText alignSelf='center' mrgnTop={responsiveHeight(2)} title="Forgot password" />
         <NormalText
           color='#3B4C68'
         fontWeight='400'

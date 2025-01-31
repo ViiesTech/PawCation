@@ -37,7 +37,7 @@ const Login = ({ navigation }) => {
           flex: 0.2,
           alignItems:'center'
         }}>
-        <BoldText title="Login Account" />
+        <BoldText alignSelf='center' title="Login Account" />
         <NormalText
           alignSelf="center"
           title="Stay signed in with your account"
@@ -96,7 +96,7 @@ const Login = ({ navigation }) => {
               {checked && <SvgIcons xml={tick} height="15" width="15" />}{' '}
               {/* Show SVG when checked */}
             </TouchableOpacity>
-            <NormalText color={Colors.black} title="Remember me" />
+            <NormalText alignSelf='center' color={Colors.black} title="Remember me" />
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('ForgotPass')}>
             <NormalText color={Colors.buttonBg} title="Forgot Password?" />

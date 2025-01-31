@@ -10,7 +10,7 @@ import { images } from '../../assets/images'
 import { Button } from '../../Components/Button'
 import ListHeading from '../../Components/ListHeading'
 
-const Home = () => {
+const Home = ({navigation}) => {
   const data = [
     {
       id: 1,
@@ -45,7 +45,8 @@ const Home = () => {
         shadowRadius: 3.84,
         marginTop: responsiveHeight(2.5),
         elevation: 5,
-      }}>
+      }}
+      >
         <View>
           <Image source={images.boarding} style={{ height: responsiveHeight(17), width: responsiveWidth(28.5) }} resizeMode='stretch' />
         </View>
@@ -55,7 +56,7 @@ const Home = () => {
             <NormalText color={Colors.black} title='$1.499,00  -' />
             <NormalText color='#989898' txtDecoration='line-through' title='$1.599,00' />
           </View>
-          <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center' }}>
+          <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', }}>
             <SvgIcons xml={pin} height={'20'} width={'20'} />
             <NormalText color='#989898' title='10km' />
 
@@ -70,22 +71,22 @@ const Home = () => {
 
   const renderNearbyItems = ({ item, index }) => {
     return (
-      <View key={index} style={{ padding: 10,width:responsiveWidth(48) }}>
-        <Image source={item.pic} style={{ width: '100%', height: responsiveHeight(17),borderRadius:responsiveHeight(1) }} />
-        <BoldText title='Store Name' fontSize={responsiveFontSize(2.4)} color='#2A1E51'/>
-        <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
-        <View style={{flexDirection:'row',alignItems:'center',gap:10,backgroundColor:'#F5F5F5',padding:7}}>
-          <SvgIcons xml={rating} height={'20'} width={'20'}/>
-          <NormalText title='4.9' alignSelf='center' color='#5F5F63'/> 
-        </View>
-<NormalText title='Rating' alignSelf='center' color='#5F5F63'/>        </View>
+      <View key={index} style={{ padding: 10, width: responsiveWidth(48) }}>
+        <Image source={item.pic} style={{ width: '100%', height: responsiveHeight(17), borderRadius: responsiveHeight(1) }} />
+        <BoldText title='Store Name' fontSize={responsiveFontSize(2.4)} color='#2A1E51' />
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10, }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, borderRadius: 5, backgroundColor: '#F5F5F5', padding: 7 }}>
+            <SvgIcons xml={rating} height={'20'} width={'20'} />
+            <NormalText title='4.9' alignSelf='center' color='#5F5F63' />
+          </View>
+          <NormalText title='Rating' alignSelf='center' color='#5F5F63' />        </View>
       </View>
     );
   };
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: responsiveHeight(2), paddingVertical: responsiveHeight(2), backgroundColor: Colors.white }}>
-      <Header />
-      <View style={{ backgroundColor: '#F6F6F6', width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', height: responsiveHeight(7.5), paddingHorizontal: responsiveHeight(2), borderRadius: 10, marginTop: responsiveHeight(2.5), gap: responsiveHeight(2) }}>
+    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, paddingHorizontal: responsiveHeight(2), paddingVertical: responsiveHeight(2), backgroundColor: Colors.white }}>
+      <Header handlePress={()=>{navigation.navigate('HomeStack',{screen:'Home2'})}}/> 
+      <View style={{ backgroundColor: '#F6F6F6', width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', height: responsiveHeight(6.5), paddingHorizontal: responsiveHeight(2), borderRadius: 10, marginTop: responsiveHeight(2.5), gap: responsiveHeight(2) }}>
         <TouchableOpacity>
           <SvgIcons xml={search} height={'20'} width={'20'} />
         </TouchableOpacity>
@@ -99,30 +100,27 @@ const Home = () => {
           <BoldText fontSize={responsiveFontSize(2)} color={Colors.white} alignSelf='right' title='Flash Sale' />
           <NormalText color={Colors.white} title='Lorem Ipsum Dummy 
 Text.'/>
-          <Button alignSelf='left' height={responsiveHeight(5.7)} width={responsiveHeight(11.7)} textColor={Colors.white} bgColor='#B3BBFB' title='See All' />
+          <Button alignSelf='left' height={responsiveHeight(5)} width={responsiveHeight(11)} textColor={Colors.white} bgColor='#B3BBFB' title='See All' />
         </View>
 
       </View>
 
-      <ListHeading btnContainer />
-      <View style={{ backgroundColor: Colors.white }}>
-        <FlatList contentContainerStyle={{ gap: 10, backgroundColor: Colors.white }} showsHorizontalScrollIndicator={false} horizontal data={data} renderItem={renderItem} />
-      </View>
+      <ListHeading btnContainer title='Flash Sale' />
+      <FlatList contentContainerStyle={{ gap: 20,marginBottom:10 }} showsHorizontalScrollIndicator={false} horizontal data={data} renderItem={renderItem} />
       <View style={{ marginTop: responsiveHeight(2) }}>
 
         <ListHeading title='Nearby Pet Hotel / Daycares' />
       </View>
-      <View>
-      <FlatList 
-      numColumns={2}
-      contentContainerStyle={{justifyContent:'space-between'}}
-        data={nearByData} 
-        renderItem={renderNearbyItems} 
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        contentContainerStyle={{ justifyContent: 'space-between' }}
+        data={nearByData}
+        renderItem={renderNearbyItems}
         keyExtractor={(item) => item.id.toString()} // Unique key for each item
-      />  
-          </View>
+      />
       <View style={{ position: 'absolute', bottom: responsiveHeight(2), right: responsiveHeight(2), zIndex: 10, }}>
-        <Button width={responsiveWidth(37)} height={responsiveHeight(7.5)} title='Add Pet' bgColor={Colors.buttonBg} textColor='white' icon xml={plus} />
+        <Button width={responsiveWidth(34)} height={responsiveHeight(6.5)} title='Add Pet' bgColor={Colors.buttonBg} textColor='white' icon xml={plus} />
       </View>
     </ScrollView>
   )

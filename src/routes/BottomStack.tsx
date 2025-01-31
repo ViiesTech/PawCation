@@ -12,10 +12,21 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import { Colors } from '../assets/colors';
 import { StyleSheet, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home2 from '../screens/mainScreens/Home2';
 // Create Bottom Tab Navigator
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 // Bottom Stack Component
+const HomeStack = () => {
+  return (
+  <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name='Home' component={Home} />
+      <Stack.Screen name='Home2' component={Store} />
+  </Stack.Navigator>
+  )
+}
 function BottomStack() {
   return (
     <Tab.Navigator
@@ -43,8 +54,10 @@ function BottomStack() {
           ),
           tabBarShowLabel: false,
         })}
-        name="Home"
-        component={Home}
+        name="HomeStack"
+        component={
+          HomeStack
+        }
       />
 
       <Tab.Screen

@@ -30,7 +30,7 @@ const SelectType = ({ navigation }) => {
         <SvgIcons xml={back} height={'20'} width={'20'} />
       </TouchableOpacity>
       <View style={styles.mainContainer}>
-        <BoldText txtAlign='center' mrgnTop={responsiveHeight(2)} title="Select Experience" />
+        <BoldText alignSelf='center' mrgnTop={responsiveHeight(2)} title="Select Experience" />
 
         <View style={styles.selectExpContainer}>
           <TouchableOpacity onPress={() => setCurrentCategory('user')}>
@@ -48,7 +48,7 @@ const SelectType = ({ navigation }) => {
               />
               {currentCategory === 'user' && <CheckBox />}
             </TouchableOpacity>
-            <BoldText title="User" mrgnTop={responsiveHeight(4)} />
+            <BoldText alignSelf='center' title="User" mrgnTop={responsiveHeight(4)} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => setCurrentCategory('dayCare')}>
@@ -65,7 +65,7 @@ const SelectType = ({ navigation }) => {
               />
               {currentCategory === 'dayCare' && <CheckBox />}
             </TouchableOpacity>
-            <BoldText title="Hotel/Daycare" mrgnTop={responsiveHeight(4)} />
+            <BoldText alignSelf='center' title="Hotel/Daycare" mrgnTop={responsiveHeight(4)} />
           </TouchableOpacity>
         </View>
       </View>
